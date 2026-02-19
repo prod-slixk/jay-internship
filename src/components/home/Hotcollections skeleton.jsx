@@ -1,8 +1,9 @@
 import React from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-import { useHotCollections } from '../../hooks/useHotCollections';
+import { useHotCollections } from '../hooks/useHotCollections';
 import CollectionsCard from './CollectionsCard';
+import CollectionsCardSkeleton from './CollectionsCardSkeleton';
 import './HotCollections.css';
 
 
@@ -33,8 +34,16 @@ const HotCollections = () => {
     return (
       <section className="hot-collections">
         <h2 className="section-title">Hot Collections</h2>
-        <div className="loading-state" role="status" aria-live="polite">
-          <p>Loading collections...</p>
+
+        <div className="carousel-wrapper">
+          <div className="carousel-container">
+            <div className="skeleton-grid">
+              {/* Show 4 skeleton cards */}
+              {[...Array(4)].map((_, index) => (
+                <CollectionsCardSkeleton key={index} />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     );
@@ -68,7 +77,7 @@ const HotCollections = () => {
       <h2 className="section-title">Hot Collections</h2>
 
       <div className="carousel-wrapper">
-        {/* Left Arrow - Overlapping */}
+        {/* Left Arrow */}
         <button
           onClick={() => instanceRef.current?.prev()}
           className="carousel-arrow carousel-arrow-left"
@@ -77,7 +86,7 @@ const HotCollections = () => {
           ←
         </button>
 
-        {/* Carousel Container */}
+        {/* Carousel */}
         <div className="carousel-container">
           <div ref={sliderRef} className="keen-slider">
             {collections.map((collection) => (
@@ -96,7 +105,7 @@ const HotCollections = () => {
           </div>
         </div>
 
-        {/* Right Arrow - Overlapping */}
+        {/* Right Arrow */}
         <button
           onClick={() => instanceRef.current?.next()}
           className="carousel-arrow carousel-arrow-right"
