@@ -3,7 +3,7 @@ import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import { useHotCollections } from '../hooks/useHotCollections';
 import CollectionsCard from './CollectionsCard';
-import CollectionsCardSkeleton from './CollectionsCardSkeleton';
+import CollectionCardSkeleton from './Collectioncardskeleton';
 import './HotCollections.css';
 
 
@@ -40,7 +40,7 @@ const HotCollections = () => {
             <div className="skeleton-grid">
               {/* Show 4 skeleton cards */}
               {[...Array(4)].map((_, index) => (
-                <CollectionsCardSkeleton key={index} />
+                <CollectionCardSkeleton key={index} />
               ))}
             </div>
           </div>
