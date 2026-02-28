@@ -7,6 +7,10 @@
   overflow: hidden;
 }
 
+.nft__item {
+    width: 100%;
+}
+
 /* Slider Arrows */
 .slider_arrow {
   position: absolute;
@@ -78,78 +82,3 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

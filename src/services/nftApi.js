@@ -22,3 +22,12 @@ export const fetchNewItems = async () => {
     throw new Error(`Failed to fetch new items: ${error.message}`);
   }
 };
+
+export const fetchTopSellers = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/topSellers`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Failed to fetch top sellers: ${error.message}`);
+  }
+};
