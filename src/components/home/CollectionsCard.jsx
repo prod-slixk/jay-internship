@@ -15,6 +15,7 @@ const CollectionCard = ({
 }) => {
   return (
     <Link to={`/item-details/${nftId}`} className="collection-card">
+      console.log(nftId);
       {/* Card Info */}
       <div className="collection-info">
         {/* Author Avatar with Badge */}
