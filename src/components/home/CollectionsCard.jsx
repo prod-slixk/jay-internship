@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './CollectionsCard.css';
 
 
@@ -13,17 +14,7 @@ const CollectionCard = ({
   nftId 
 }) => {
   return (
-    <div className="collection-card">
-      {/* NFT Image */}
-      <div className="collection-image-container">
-        <img 
-          src={nftImage} 
-          alt={title}
-          className="collection-image"
-          loading="lazy"
-        />
-      </div>
-      
+    <Link to={`/item-details/${nftId}`} className="collection-card">
       {/* Card Info */}
       <div className="collection-info">
         {/* Author Avatar with Badge */}
@@ -59,7 +50,7 @@ const CollectionCard = ({
         {/* ERC Code */}
         <p className="collection-code">ERC-{code}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
