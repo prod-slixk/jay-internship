@@ -91,7 +91,6 @@ const HotCollections = () => {
           </div>
         </div>
         
-        {/* Carousel with navigation arrows */}
         <div style={{ position: 'relative', marginTop: '40px' }}>
           <button
             onClick={() => instanceRef.current?.prev()}
@@ -117,6 +116,7 @@ const HotCollections = () => {
             {collections.map((collection) => (
               <div className="keen-slider__slide" key={collection.id}>
                 <div className="nft__item">
+                  {/* Author Avatar - Routes to author page */}
                   <div className="author_list_pp">
                     <Link to={`/author/${collection.authorId}`}>
                       <img 
@@ -127,6 +127,7 @@ const HotCollections = () => {
                       <i className="fa fa-check"></i>
                     </Link>
                   </div>
+                  
                   <div className="nft__item_wrap">
                     <div className="nft__item_extra">
                       <div className="nft__item_buttons">
@@ -145,7 +146,9 @@ const HotCollections = () => {
                         </div>
                       </div>
                     </div>
-                    <Link to={`/author/${collection.authorId}`}>
+                    
+                    {/* CORRECT: NFT Image routes to item-details */}
+                    <Link to={`/item-details/${collection.nftId}`}>
                       <img
                         src={collection.nftImage}
                         className="lazy nft__item_preview"
@@ -153,8 +156,10 @@ const HotCollections = () => {
                       />
                     </Link>
                   </div>
+                  
                   <div className="nft__item_info">
-                    <Link to={`/author/${collection.authorId}`}>
+                    {/* Title also routes to item-details */}
+                    <Link to={`/item-details/${collection.nftId}`}>
                       <h4>{collection.title}</h4>
                     </Link>
                     <div className="nft__item_price">ERC-{collection.code}</div>
