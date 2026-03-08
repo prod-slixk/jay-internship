@@ -39,7 +39,9 @@ export const fetchTopSellers = async () => {
   }
 };
 
-
+/**
+ * Fetch explore items
+ */
 export const fetchExploreItems = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/explore`);
@@ -49,33 +51,19 @@ export const fetchExploreItems = async () => {
   }
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * Fetch a single author by ID
+ */
+export const fetchAuthor = async (authorId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/authors`, {
+      params: { author: authorId },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(`Failed to fetch author: ${error.message}`);
+  }
+};
 
 
 
