@@ -51,9 +51,7 @@ export const fetchExploreItems = async () => {
   }
 };
 
-/**
- * Fetch a single author by ID
- */
+
 export const fetchAuthor = async (authorId) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/authors`, {
@@ -66,13 +64,13 @@ export const fetchAuthor = async (authorId) => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
+export const fetchItemDetails = async (nftId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/itemDetails`, {
+      params: { nftId },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(`Failed to fetch item details: ${error.message}`);
+  }
+};

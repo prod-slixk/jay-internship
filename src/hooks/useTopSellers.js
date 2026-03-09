@@ -1,19 +1,18 @@
 import { useState, useEffect } from "react";
-import { fetchHotCollections } from "../services/nftApi";
+import { fetchTopSellers } from "../services/nftApi";
 
-
-export const useHotCollections = () => {
-  const [collections, setCollections] = useState([]);
+export const useTopSellers = () => {
+  const [sellers, setSellers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadHotCollections = async () => {
+    const loadTopSellers = async () => {
       try {
         setLoading(true);
         setError(null);
-        const data = await fetchHotCollections();
-        setCollections(data);
+        const data = await fetchTopSellers();
+        setSellers(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -21,8 +20,8 @@ export const useHotCollections = () => {
       }
     };
 
-    loadHotCollections();
+    loadTopSellers();
   }, []);
 
-  return { collections, loading, error };
+  return { sellers, loading, error };
 };
