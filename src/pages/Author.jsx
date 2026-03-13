@@ -207,7 +207,7 @@ const Author = () => {
             <div className="row">
               <div className="col-md-12">
                 <div className="d_profile de-flex">
-                  <div className="de-flex-col">
+                  <div className="de-flex-col" data-aos="fade-right">
                     <div className="profile_avatar">
                       <img src={author.authorImage} alt={author.authorName} />
 
@@ -226,7 +226,7 @@ const Author = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="profile_follow de-flex">
+                  <div className="profile_follow de-flex" data-aos="fade-left">
                     <div className="de-flex-col">
                       <div className="profile_follower">
                         {followers} followers

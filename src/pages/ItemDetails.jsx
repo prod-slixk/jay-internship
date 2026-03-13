@@ -221,7 +221,7 @@ const ItemDetails = () => {
             <div className="row">
 
               {/* NFT Image */}
-              <div className="col-md-6 text-center">
+              <div className="col-md-6 text-center" data-aos="fade-right">
                 <img
                   src={nft.nftImage}
                   className="img-fluid img-rounded mb-sm-30 nft-image"
@@ -230,7 +230,7 @@ const ItemDetails = () => {
               </div>
 
               {/* NFT Info */}
-              <div className="col-md-6">
+              <div className="col-md-6" data-aos="fade-left">
                 <div className="item_info">
                   <h2>{nft.title}</h2>
 
