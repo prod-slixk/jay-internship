@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
@@ -8,6 +8,32 @@ import { useAuthor } from "../hooks/useAuthor";
 const Author = () => {
   const { authorId } = useParams();
   const { author, loading, error } = useAuthor(authorId);
+
+
+  const [followers, setFollowers] = useState(0);
+  const [isFollowing, setIsFollowing] = useState(false);
+
+  useEffect(() => {
+    if (author) {
+      setFollowers(author.followers);
+    }
+  }, [author]);
+
+  const handleFollow = () => {
+    setIsFollowing((prev) => !prev);
+    setFollowers((prev) => (isFollowing ? prev - 1 : prev + 1));
+  };
+
+
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    if (author?.address) {
+      navigator.clipboard.writeText(author.address);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
 
   if (loading) {
@@ -193,7 +219,7 @@ const Author = () => {
                           <span id="wallet" className="profile_wallet">
                             {author.address}
                           </span>
-                          <button id="btn_copy" title="Copy Text">
+                          <button id="btn_copy" title="Copy Text" onClick={handleCopy}>
                             Copy
                           </button>
                         </h4>
@@ -203,11 +229,11 @@ const Author = () => {
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
                       <div className="profile_follower">
-                        {author.followers} followers
+                        {followers} followers
                       </div>
-                      <Link to="#" className="btn-main">
-                        Follow
-                      </Link>
+                      <button className="btn-main" onClick={handleFollow}>
+                        {isFollowing ? "Following" : "Follow"}
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -222,6 +248,28 @@ const Author = () => {
           </div>
         </section>
       </div>
+
+      {/* Toast notification — renders on copy, auto-dismisses after 2s */}
+      {copied && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "30px",
+            right: "30px",
+            background: "#333",
+            color: "#fff",
+            padding: "12px 24px",
+            borderRadius: "8px",
+            fontSize: "14px",
+            fontWeight: "500",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+            zIndex: 9999,
+            animation: "fadeIn 0.2s ease",
+          }}
+        >
+          ✓ Wallet address copied!
+        </div>
+      )}
     </div>
   );
 };
