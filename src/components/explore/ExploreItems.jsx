@@ -62,6 +62,7 @@ const ExploreCard = ({ item }) => {
   );
 };
 
+// from main!!! do not remove
 const ExploreItems = () => {
   const { items, loading, error, filterItems, loadMore, hasMore } = useExploreItems();
 
