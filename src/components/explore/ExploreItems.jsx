@@ -40,9 +40,9 @@ const ExploreCard = ({ item }) => {
             <button>Buy Now</button>
             <div className="nft__item_share">
               <h4>Share</h4>
-              <a href="#" target="_blank" rel="noreferrer"><i className="fa fa-facebook fa-lg"></i></a>
-              <a href="#" target="_blank" rel="noreferrer"><i className="fa fa-twitter fa-lg"></i></a>
-              <a href="#"><i className="fa fa-envelope fa-lg"></i></a>
+              <a href="https://www.facebook.com" target="_blank" rel="noreferrer"><i className="fa fa-facebook fa-lg"></i></a>
+              <a href="https://www.twitter.com" target="_blank" rel="noreferrer"><i className="fa fa-twitter fa-lg"></i></a>
+              <button type="button" style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}><i className="fa fa-envelope fa-lg"></i></button>
             </div>
           </div>
         </div>
