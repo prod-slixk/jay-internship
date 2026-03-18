@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import EthImage from "../images/ethereum.svg";
 import { useItemDetails } from "../hooks/useItemDetails";
-import AOS from "aos";
+
 
 
 const ItemDetails = () => {
@@ -13,12 +13,7 @@ const ItemDetails = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Refresh AOS after nft data resolves so fade-right/fade-left columns animate in
-  useEffect(() => {
-    if (!nft) return;
-    const timer = setTimeout(() => AOS.refresh(), 50);
-    return () => clearTimeout(timer);
-  }, [nft]);
+
 
 
   if (loading) {
@@ -229,7 +224,7 @@ const ItemDetails = () => {
             <div className="row">
 
               {/* NFT Image */}
-              <div className="col-md-6 text-center" data-aos="fade-right">
+              <div className="col-md-6 text-center">
                 <img
                   src={nft.nftImage}
                   className="img-fluid img-rounded mb-sm-30 nft-image"
@@ -238,7 +233,7 @@ const ItemDetails = () => {
               </div>
 
               {/* NFT Info */}
-              <div className="col-md-6" data-aos="fade-left">
+              <div className="col-md-6">
                 <div className="item_info">
                   <h2>{nft.title}</h2>
 
