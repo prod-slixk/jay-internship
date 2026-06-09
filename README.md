@@ -1,22 +1,44 @@
+<div align="center">
+
 # Ultraverse — NFT Marketplace
 
-A responsive NFT marketplace UI built with React. Browse hot collections, discover new listings, explore items by price or popularity, and view individual NFT details — all backed by live API data.
+**A fully responsive NFT marketplace built with React, featuring live API data, real-time auction countdowns, and multi-page browsing.**
 
-**[Live Demo](https://jay-internship.vercel.app) · [GitHub](https://github.com/prod-slixk/jay-internship)**
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-brightgreen?style=for-the-badge)](https://jay-internship.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Source%20Code-181717?style=for-the-badge&logo=github)](https://github.com/prod-slixk/jay-internship)
+[![React](https://img.shields.io/badge/React-17-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Firebase](https://img.shields.io/badge/Firebase-9-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+
+</div>
+
+---
+
+## Overview
+
+Ultraverse is a multi-page NFT marketplace UI where users can browse curated collections, discover new listings, explore items with sort and filter controls, and view individual NFT details. Built with live API data, the app reflects real-time market content across all pages.
+
+---
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Home — Hot Collections, New Items, Top Sellers, Browse by Category |
+| `/explore` | Explore — filterable NFT grid with price and popularity sorting |
+| `/author` | Author profile with their listed works |
+| `/item-details` | Full NFT detail view with metadata and purchase UI |
 
 ---
 
 ## Features
 
-- **Home page** — Hot Collections carousel, New Items grid, Top Sellers leaderboard, and Browse by Category section
-- **Explore page** — Filter and sort NFTs by price (low → high, high → low) or most liked; 8-item responsive grid
-- **Author profile page** — Individual creator pages with their listed works
-- **Item Details page** — Full NFT detail view with metadata
-- **Countdown timers** — Live auction countdowns on active listings
-- **Buy Now** — Purchase flow UI on individual listings
-- **Social sharing** — Share items via Facebook, Twitter, and email
-- **Verified author badges** — Visual trust indicators on collection cards
-- **Fully responsive** — Mobile-first layout across all screen sizes
+- Browse **Hot Collections** with verified author badges and live API data
+- **Explore page** with sort controls — price low→high, high→low, most liked
+- **Live countdown timers** on active auction listings
+- **Buy Now** purchase flow UI on individual listings
+- **Social sharing** via Facebook, Twitter, and email
+- Persistent **Nav + Footer** across all pages
+- Fully **responsive** — mobile-first layout at every breakpoint
 
 ---
 
@@ -30,44 +52,30 @@ A responsive NFT marketplace UI built with React. Browse hot collections, discov
 | Icons | React Icons v4 |
 | Backend / Auth | Firebase 9 |
 | Styling | CSS3 |
-| Build Tool | Create React App |
-
----
-
-## Pages
-
-```
-/              → Home (Hot Collections, New Items, Top Sellers, Browse by Category)
-/explore       → Explore (filter grid with sort controls)
-/author        → Author profile
-/item-details  → NFT detail view
-```
+| Deployment | Vercel |
 
 ---
 
 ## Getting Started
 
 ```bash
-# Clone the repo
+# 1. Clone the repository
 git clone https://github.com/prod-slixk/jay-internship.git
 cd jay-internship
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Start development server
+# 3. Start the development server
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Build for Production
+Open [http://localhost:3000](http://localhost:3000) — the app hot-reloads on save.
 
 ```bash
+# Production build
 npm run build
 ```
-
-Outputs an optimized production bundle to the `build/` folder.
 
 ---
 
@@ -76,21 +84,21 @@ Outputs an optimized production bundle to the `build/` folder.
 ```
 src/
 ├── components/
-│   ├── Nav.jsx
-│   ├── Footer.jsx
+│   ├── Nav.jsx                      # Global navigation bar
+│   ├── Footer.jsx                   # Global footer
 │   ├── explore/
-│   │   └── ExploreItems.jsx     # Filter select + NFT grid + countdown timers
+│   │   └── ExploreItems.jsx         # Sort controls + NFT grid + countdown timers
 │   └── home/
-│       ├── HotCollections.jsx   # 4-item collection grid with author badges
-│       ├── NewItems.jsx
-│       ├── TopSellers.jsx
-│       └── BrowseByCategory.jsx
+│       ├── HotCollections.jsx       # 4-item collection grid with author badges
+│       ├── NewItems.jsx             # Newest listings grid
+│       ├── TopSellers.jsx           # Leaderboard of top sellers
+│       └── BrowseByCategory.jsx     # Category filter UI
 ├── pages/
-│   ├── Home.jsx
-│   ├── Explore.jsx
-│   ├── Author.jsx
-│   └── ItemDetails.jsx
-└── App.jsx                      # Router setup
+│   ├── Home.jsx                     # Composes all home sections
+│   ├── Explore.jsx                  # Explore page with filter wrapper
+│   ├── Author.jsx                   # Author profile page
+│   └── ItemDetails.jsx              # Individual NFT detail page
+└── App.jsx                          # Router + layout shell
 ```
 
 ---
