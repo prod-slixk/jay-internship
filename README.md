@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Ultraverse — NFT Marketplace
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive NFT marketplace UI built with React. Browse hot collections, discover new listings, explore items by price or popularity, and view individual NFT details — all backed by live API data.
 
-## Available Scripts
+**[Live Demo](https://jay-internship.vercel.app) · [GitHub](https://github.com/prod-slixk/jay-internship)**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Home page** — Hot Collections carousel, New Items grid, Top Sellers leaderboard, and Browse by Category section
+- **Explore page** — Filter and sort NFTs by price (low → high, high → low) or most liked; 8-item responsive grid
+- **Author profile page** — Individual creator pages with their listed works
+- **Item Details page** — Full NFT detail view with metadata
+- **Countdown timers** — Live auction countdowns on active listings
+- **Buy Now** — Purchase flow UI on individual listings
+- **Social sharing** — Share items via Facebook, Twitter, and email
+- **Verified author badges** — Visual trust indicators on collection cards
+- **Fully responsive** — Mobile-first layout across all screen sizes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Category | Technology |
+|---|---|
+| Framework | React 17 |
+| Language | JavaScript (ES6+) |
+| Routing | React Router DOM v6 |
+| Icons | React Icons v4 |
+| Backend / Auth | Firebase 9 |
+| Styling | CSS3 |
+| Build Tool | Create React App |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Pages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+/              → Home (Hot Collections, New Items, Top Sellers, Browse by Category)
+/explore       → Explore (filter grid with sort controls)
+/author        → Author profile
+/item-details  → NFT detail view
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# Clone the repo
+git clone https://github.com/prod-slixk/jay-internship.git
+cd jay-internship
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Install dependencies
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Start development server
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### Build for Production
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Outputs an optimized production bundle to the `build/` folder.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Project Structure
 
-### Analyzing the Bundle Size
+```
+src/
+├── components/
+│   ├── Nav.jsx
+│   ├── Footer.jsx
+│   ├── explore/
+│   │   └── ExploreItems.jsx     # Filter select + NFT grid + countdown timers
+│   └── home/
+│       ├── HotCollections.jsx   # 4-item collection grid with author badges
+│       ├── NewItems.jsx
+│       ├── TopSellers.jsx
+│       └── BrowseByCategory.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── Explore.jsx
+│   ├── Author.jsx
+│   └── ItemDetails.jsx
+└── App.jsx                      # Router setup
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT
